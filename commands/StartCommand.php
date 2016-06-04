@@ -42,7 +42,7 @@ namespace Longman\TelegramBot\Commands\UserCommands {
             $chat_id = $message->getChat()->getId();
             $this->conversation = new Conversation($user_id, $chat_id, $this->getName());
             $data = [
-                'chat_id' => $chat,
+                'chat_id' => $chat_id,
                 'reply_to_message_id' => $message->getMessageId()
             ];
             if ($message->getAudio() != null) {
