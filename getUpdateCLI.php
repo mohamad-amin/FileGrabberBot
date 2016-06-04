@@ -20,12 +20,20 @@ if(!flock($hLock, LOCK_EX | LOCK_NB))
 $API_KEY = '211996742:AAEnbgUBo4dBkjMfAy7usLwe_WNbo_7nGH4';
 $BOT_NAME = 'FileGrabberBot';
 
+$mysql_credentials = [
+    'host'     => 'localhost',
+    'user'     => 'root',
+    'password' => 'MohandesPlus',
+    'database' => 'filegrabberbot',
+];
+
 $telegram = null;
 
 try {
     // Create Telegram API object
     $telegram = new Telegram($API_KEY, $BOT_NAME);
     // Enable MySQL
+    $telegram->enableMySql($mysql_credentials);
     // Handle telegram getUpdate request
     $telegram->addCommandsPath('commands');
     $telegram->setDownloadPath('file');

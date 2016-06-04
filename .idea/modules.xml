@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/PhpstormProjects/FileGrabberBot/.idea/FileGrabberBot.iml" filepath="$USER_HOME$/PhpstormProjects/FileGrabberBot/.idea/FileGrabberBot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/FileGrabberBot.iml" filepath="$PROJECT_DIR$/.idea/FileGrabberBot.iml" />
     </modules>
   </component>
 </project>

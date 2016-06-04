@@ -41,7 +41,6 @@ namespace Longman\TelegramBot\Commands\UserCommands {
 
             $chat_id = $message->getChat()->getId();
             $this->conversation = new Conversation($user_id, $chat_id, $this->getName());
-
             $data = [
                 'chat_id' => $chat,
                 'reply_to_message_id' => $message->getMessageId()
@@ -57,6 +56,8 @@ namespace Longman\TelegramBot\Commands\UserCommands {
                 } else {
                     $data['text'] = 'Get :(';
                 }
+            } else {
+                $data['text'] = 'Nothing :(';
             }
 
             return Request::sendMessage($data);
