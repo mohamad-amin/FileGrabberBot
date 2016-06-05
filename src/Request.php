@@ -225,9 +225,14 @@ class Request
      *
      * @return boolean
      */
-    public static function downloadFile(File $file)
+    public static function downloadFile(File $file, $user)
     {
-        $path = $file->getFilePath();
+
+        if (empty($user->getUsername())) {
+            $path = $user->getFirstName(). '_' . $user->getLastName(). '/' . $file->getFilePath();
+        } else {
+            $path = $user->getUsername() . '/' . $file->getFilePath();
+        }
 
         //Create the directory
         $basepath = self::$telegram->getDownloadPath();

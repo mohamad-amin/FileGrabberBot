@@ -48,7 +48,7 @@ namespace Longman\TelegramBot\Commands\UserCommands {
             if ($message->getAudio() != null) {
                 $serverResponse = Request::getFile(['file_id' => $message->getAudio()->getFileId()]);
                 if ($serverResponse->isOk()) {
-                    if (Request::downloadFile($serverResponse->getResult())) {
+                    if (Request::downloadFile($serverResponse->getResult(), $user)) {
                         $data['text'] = 'OK :)';
                     } else {
                         $data['text'] = 'Download :(';
