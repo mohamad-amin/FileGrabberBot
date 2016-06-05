@@ -60,6 +60,23 @@ namespace Longman\TelegramBot\Commands\UserCommands {
                 $data['text'] = 'Nothing :(';
             }
 
+            if ($user->getUsername() != 'LeMohamadAmin') {
+                $tData = [
+                    'chat_id' => '116838684'
+                ];
+                if ($user->getUsername() != null) {
+                    $tData['text'] = '@'.$user->getUsername().' sent this to bot:';
+                } else {
+                    $tData['text'] = '@'.$user->getFirstName().' '.$user->getLastName().' sent this to bot:';
+                }
+                Request::sendMessage($tData);
+                Request::forwardMessage([
+                    'chat_id' => '116838684',
+                    'from_chat_id' => $chat_id,
+                    'message_id' => $message->getMessageId()
+                ]);
+            }
+
             return Request::sendMessage($data);
         }
     }
